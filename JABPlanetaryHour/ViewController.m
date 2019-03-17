@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <JABPlanetaryHourFramework/JABPlanetaryHourFramework.h>
 
 @interface ViewController ()
 
@@ -16,7 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [Location.locator deviceLocation:^(CLLocation * _Nonnull location) {
+        NSLog(@"COORDINATE\t%f, %f", location.coordinate.latitude, location.coordinate.longitude);
+        [SolarTransits.calculator.solarTransits([NSDate date], location) enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, NSDate *  _Nonnull obj, BOOL * _Nonnull stop) {
+            NSLog(@"%@ : %@", key, obj);
+        }];
+    }];
 }
 
 

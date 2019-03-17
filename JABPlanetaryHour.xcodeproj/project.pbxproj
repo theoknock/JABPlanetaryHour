@@ -22,6 +22,7 @@
 		B913AF4E223CAB8A0018D79C /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B913AF4D223CAB8A0018D79C /* NotificationController.m */; };
 		B913AF51223CAB8A0018D79C /* ComplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B913AF50223CAB8A0018D79C /* ComplicationController.m */; };
 		B913AF53223CAB8B0018D79C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B913AF52223CAB8B0018D79C /* Assets.xcassets */; };
+		B9FFCBFC223CB7870035323A /* JABPlanetaryHourFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B9FFCBF6223CB4D20035323A /* JABPlanetaryHourFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,17 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B9FFCBFD223CB7880035323A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B9FFCBFC223CB7870035323A /* JABPlanetaryHourFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -71,7 +83,7 @@
 		B913AF1F223CAB890018D79C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B913AF20223CAB890018D79C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B913AF22223CAB890018D79C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B913AF23223CAB890018D79C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B913AF23223CAB890018D79C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		B913AF26223CAB890018D79C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B913AF28223CAB8A0018D79C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B913AF2B223CAB8A0018D79C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,6 +105,7 @@
 		B913AF52223CAB8B0018D79C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B913AF54223CAB8B0018D79C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B913AF55223CAB8B0018D79C /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		B9FFCBF6223CB4D20035323A /* JABPlanetaryHourFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JABPlanetaryHourFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +133,7 @@
 				B913AF36223CAB8A0018D79C /* JABPlanetaryHour WatchKit App */,
 				B913AF45223CAB8A0018D79C /* JABPlanetaryHour WatchKit Extension */,
 				B913AF1D223CAB890018D79C /* Products */,
+				B913AF63223CABB30018D79C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,6 +191,14 @@
 			path = "JABPlanetaryHour WatchKit Extension";
 			sourceTree = "<group>";
 		};
+		B913AF63223CABB30018D79C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9FFCBF6223CB4D20035323A /* JABPlanetaryHourFramework.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -188,6 +210,7 @@
 				B913AF19223CAB890018D79C /* Frameworks */,
 				B913AF1A223CAB890018D79C /* Resources */,
 				B913AF5F223CAB8B0018D79C /* Embed Watch Content */,
+				B9FFCBFD223CB7880035323A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
