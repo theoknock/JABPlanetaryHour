@@ -5,7 +5,7 @@
 //  Created by Xcode Developer on 3/15/19.
 //  Copyright © 2019 The Life of a Demoniac. All rights reserved.
 //
-//  Root view controller for calendar and map view controllers
+//  Root view controller for calendar and map view controllers; defaults to last presented view controller on launch
 
 #import "ViewController.h"
 #import <JABPlanetaryHourFramework/JABPlanetaryHourFramework.h>
