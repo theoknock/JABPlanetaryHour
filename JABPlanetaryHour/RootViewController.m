@@ -10,8 +10,15 @@
 #import "RootViewController.h"
 #import "CalendarRootViewController.h"
 #import <JABPlanetaryHourFramework/JABPlanetaryHourFramework.h>
+#import <CoreMedia/CoreMedia.h>
 
 @interface RootViewController ()
+{
+    // First array indices == day of year
+    // Second array of indicies == hour of day
+    // Block returns planetary hour for day
+    NSMutableArray<NSMutableArray<dispatch_block_t> *> *arrays;
+}
 
 @end
 
@@ -19,7 +26,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     CalendarRootViewController *calendarRootViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CalendarRootViewController"];
     
     [self addChildViewController:calendarRootViewController];
@@ -34,12 +40,32 @@
     
     [calendarRootViewController didMoveToParentViewController:self];
     
-    [Location.locator deviceLocation:^(CLLocation * _Nonnull location) {
-        NSLog(@"COORDINATE\t%f, %f", location.coordinate.latitude, location.coordinate.longitude);
-        [SolarTransits.calculator.solarTransits([NSDate date], location) enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, NSDate *  _Nonnull obj, BOOL * _Nonnull stop) {
-            NSLog(@"%@ : %@", key, obj);
+    CMTime (^currentTime)(void) = ^(void) {
+        return CMClockGetTime(CMClockGetHostTimeClock());
+    };
+    
+    typedef void(^ExecutionTimeMeasurement)(CMTime timeElapsed);
+    typedef void(^MeasureExecutionTime)(ExecutionTimeMeasurement executionTime);
+    void(^measureExecutionTime)(CMTime, ExecutionTimeMeasurement) = ^(CMTime startTime, ExecutionTimeMeasurement executionTime)
+    {
+        [Location.locator deviceLocation:^(CLLocation * _Nonnull location) {
+            NSLog(@"COORDINATE\t%f, %f", location.coordinate.latitude, location.coordinate.longitude);
+            NSDate *date = [NSDate date];
+            for (int i = 0; i < (365 * 10); i++)
+            {
+                date = [date dateByAddingTimeInterval:86400];
+                [[Date.calculator solarCycleDataUsingProvider:[Date.calculator solarCycleDataProvider]](date, location) enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, NSDate *  _Nonnull obj, BOOL * _Nonnull stop) {
+                    NSLog(@"%@ : %@", key, obj);
+                }];
+                NSLog(@"-----");
+            }
+            executionTime(CMTimeSubtract(CMClockGetTime(CMClockGetHostTimeClock()), startTime));
         }];
-    }];
+    };
+    
+    measureExecutionTime(CMClockGetTime(CMClockGetHostTimeClock()), ^(CMTime elapsedTime) {
+        CMTimeShow(elapsedTime);
+    });
 }
 
 
