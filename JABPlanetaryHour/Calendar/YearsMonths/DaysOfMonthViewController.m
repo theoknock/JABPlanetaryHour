@@ -7,8 +7,6 @@
 //
 
 #import "DaysOfMonthViewController.h"
-#import "DayOrdinalTouchRecognizer.h"
-
 
 @interface DaysOfMonthViewController ()
 
@@ -19,15 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.view addGestureRecognizer:[[DayOrdinalTouchRecognizer alloc] initWithTarget:self action:@selector(handleViewTouch:)]];
-//    [(NSArray<UIStackView *> *)self.weekStackViews enumerateObjectsUsingBlock:^(UIStackView * _Nonnull stackView, NSUInteger idx, BOOL * _Nonnull stop) {
+    [(NSArray<UIStackView *> *)self.weekStackViews enumerateObjectsUsingBlock:^(UIStackView * _Nonnull stackView, NSUInteger stack_idx, BOOL * _Nonnull stop) {
 //        [stackView setTag:idx];
 //        [stackView addGestureRecognizer:[[DayOrdinalTouchRecognizer alloc] initWithTarget:self action:@selector(handleTouch:)]];
 //        NSLog(@"UIStackView %lu", stackView.tag);
-//        [(NSArray<UILabel *> *)self.dayOrdinalsLabelsOutletCollection enumerateObjectsUsingBlock:^(UILabel * _Nonnull label, NSUInteger idx, BOOL * _Nonnull stop) {
-//            [label setTag:idx];
-//        }];
-//    }];
+        [(NSArray<UILabel *> *)stackView.arrangedSubviews enumerateObjectsUsingBlock:^(UILabel * _Nonnull label, NSUInteger idx, BOOL * _Nonnull stop) {
+            [label setText:[NSString stringWithFormat:@"%lu", idx + (stackView.tag * 7)]];
+        }];
+    }];
 }
 
 //- (void)handleTouch:(DayOrdinalTouchRecognizer *)touch
@@ -35,11 +32,6 @@
 //    [(UILabel *)touch.view setHighlighted:![(UILabel *)touch.view isHighlighted]];
 //}
 
-- (void)handleViewTouch:(DayOrdinalTouchRecognizer *)touch
-{
-    //    [self.view.layer setBorderWidth:1.0];
-    //    [self.view.layer setBorderColor:[UIColor redColor].CGColor];
-}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

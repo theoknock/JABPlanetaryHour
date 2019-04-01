@@ -48,19 +48,17 @@
     typedef void(^MeasureExecutionTime)(ExecutionTimeMeasurement executionTime);
     void(^measureExecutionTime)(CMTime, ExecutionTimeMeasurement) = ^(CMTime startTime, ExecutionTimeMeasurement executionTime)
     {
-        [Location.locator deviceLocation:^(CLLocation * _Nonnull location) {
-            NSLog(@"COORDINATE\t%f, %f", location.coordinate.latitude, location.coordinate.longitude);
-            NSDate *date = [NSDate date];
-            for (int i = 0; i < (365 * 10); i++)
-            {
-                date = [date dateByAddingTimeInterval:86400];
-                [[Date.calculator solarCycleDataUsingProvider:[Date.calculator solarCycleDataProvider]](date, location) enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, NSDate *  _Nonnull obj, BOOL * _Nonnull stop) {
-                    NSLog(@"%@ : %@", key, obj);
-                }];
-                NSLog(@"-----");
-            }
-            executionTime(CMTimeSubtract(CMClockGetTime(CMClockGetHostTimeClock()), startTime));
-        }];
+//        [Location.locator deviceLocation:^(CLLocation * _Nonnull location) {
+//            NSLog(@"COORDINATE\t%f, %f", location.coordinate.latitude, location.coordinate.longitude);
+//            SolarCycles *solarCycles = [[SolarCycles alloc] initWithLocation:location];
+//            [solarCycles enumerateObjectsUsingBlock:^(NSDictionary<NSNumber *, NSDate *> * _Nonnull solarCycle, NSUInteger idx, BOOL * _Nonnull stop) {
+//                [solarCycle enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, NSDate * _Nonnull obj, BOOL * _Nonnull stop) {
+//                    NSLog(@"%@ : %@", key, obj);
+//                }];
+//                NSLog(@"-----");
+//            }];
+//            executionTime(CMTimeSubtract(CMClockGetTime(CMClockGetHostTimeClock()), startTime));
+//        }];
     };
     
     measureExecutionTime(CMClockGetTime(CMClockGetHostTimeClock()), ^(CMTime elapsedTime) {

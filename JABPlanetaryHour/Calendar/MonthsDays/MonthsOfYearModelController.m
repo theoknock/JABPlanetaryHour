@@ -111,7 +111,7 @@ NSNumber * (^pageDataAtIndex)(NSUInteger) = ^(NSUInteger index) {
 
 - (MonthsOfYearViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard {
     // Return the data view controller for the given index.
-    NSLog(@"[pageData() count] %lu", [pageData() count]);
+//    NSLog(@"[pageData() count] %lu", [pageData() count]);
     if (([pageData() count] == 0) || (index >= [pageData() count])) {
         return nil;
     }

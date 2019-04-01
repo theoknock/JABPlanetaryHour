@@ -1,20 +1,29 @@
 //
-//  HoursCollectionViewController.m
+//  DaysHoursCollectionViewController.m
 //  JABPlanetaryHour
 //
-//  Created by Xcode Developer on 3/19/19.
+//  Created by Xcode Developer on 3/26/19.
 //  Copyright © 2019 The Life of a Demoniac. All rights reserved.
 //
 
-#import "HoursCollectionViewController.h"
+#import "DaysHoursCollectionViewController.h"
+#import "DaysHoursCollectionViewCell.h"
+#import <JABPlanetaryHourFramework/JABPlanetaryHourFramework.h>
 
-@interface HoursCollectionViewController ()
+@interface DaysHoursCollectionViewController ()
 
 @end
 
-@implementation HoursCollectionViewController
+@implementation DaysHoursCollectionViewController
 
-static NSString * const reuseIdentifier = @"Cell";
+static NSString * const reuseIdentifier = @"DaysHoursCell";
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    [self.collectionView registerClass:[DaysHoursCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,33 +37,42 @@ static NSString * const reuseIdentifier = @"Cell";
     // Do any additional setup after loading the view.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
-    return 0;
+    return 365;
+}
+
+typedef NSMutableString * (^IntegerToString)(NSInteger);
+static NSString * (^concatenateTwoStrings)(IntegerToString, IntegerToString) = ^NSString * (IntegerToString string1, IntegerToString string2)
+{
+    return [NSString new];
+};
+
+- (void)do: (void (^)(id obj))block
+{
+    NSTimeInterval (^lengthOfHour)(NSDictionary<NSNumber *, NSDate *> * _Nonnull) = ^NSTimeInterval (NSDictionary<NSNumber *, NSDate *> * _Nonnull twilights) {
+        return ([[twilights objectForKey:@(1)] timeIntervalSinceDate:[twilights objectForKey:@(0)]] / 12);
+    };
+
+    NSDictionary<NSNumber *, NSDate *> * _Nonnull (^twilights)(NSInteger, CLLocationCoordinate2D) = ^NSDictionary<NSNumber *, NSDate *> * _Nonnull (NSInteger julianDayNumber, CLLocationCoordinate2D coordinate) {
+        return [NSDictionary new];
+    };
+    
+    lengthOfHour(twilights(1, CLLocationCoordinate2DMake(0, 0)));
+    
+//    NSString *concatenatedString = stringConcat(integerToString(1), integerToString(2));
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    DaysHoursCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    // Configure the cell
+    [cell setPlanetSymbol:[NSString stringWithFormat:@"%lu", indexPath.item]];
     
     return cell;
 }

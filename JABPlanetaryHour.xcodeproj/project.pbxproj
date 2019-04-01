@@ -12,7 +12,6 @@
 		B913AF27223CAB890018D79C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B913AF25223CAB890018D79C /* Main.storyboard */; };
 		B913AF29223CAB8A0018D79C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B913AF28223CAB8A0018D79C /* Assets.xcassets */; };
 		B913AF2C223CAB8A0018D79C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B913AF2A223CAB8A0018D79C /* LaunchScreen.storyboard */; };
-		B913AF2F223CAB8A0018D79C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B913AF2E223CAB8A0018D79C /* main.m */; };
 		B913AF33223CAB8A0018D79C /* JABPlanetaryHour WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B913AF32223CAB8A0018D79C /* JABPlanetaryHour WatchKit App.app */; };
 		B913AF39223CAB8A0018D79C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B913AF37223CAB8A0018D79C /* Interface.storyboard */; };
 		B913AF3B223CAB8A0018D79C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B913AF3A223CAB8A0018D79C /* Assets.xcassets */; };
@@ -29,8 +28,10 @@
 		B9552FF3223ECE2000D54DE2 /* DaysOfMonthModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9552FF2223ECE2000D54DE2 /* DaysOfMonthModelController.m */; };
 		B9552FF9223ED16200D54DE2 /* MonthsOfYearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9552FF8223ED16200D54DE2 /* MonthsOfYearViewController.m */; };
 		B9552FFC223EDD6D00D54DE2 /* DaysOfMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9552FFB223EDD6D00D54DE2 /* DaysOfMonthViewController.m */; };
-		B9644E5122407E8D00A5A6BE /* DayOrdinalTouchRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9644E5022407E8D00A5A6BE /* DayOrdinalTouchRecognizer.m */; };
-		B9644E582241264D00A5A6BE /* HoursCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9644E572241264D00A5A6BE /* HoursCollectionViewController.m */; };
+		B9644E5122407E8D00A5A6BE /* TouchRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9644E5022407E8D00A5A6BE /* TouchRecognizer.m */; };
+		B9F231CB22487C8A0009142C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B913AF2E223CAB8A0018D79C /* main.m */; };
+		B9F231D12249FD8E0009142C /* DaysHoursCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F231D02249FD8E0009142C /* DaysHoursCollectionViewController.m */; };
+		B9F231D4224A01190009142C /* DaysHoursCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F231D3224A01190009142C /* DaysHoursCollectionViewCell.m */; };
 		B9FFCBFC223CB7870035323A /* JABPlanetaryHourFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B9FFCBF6223CB4D20035323A /* JABPlanetaryHourFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -128,10 +129,12 @@
 		B9552FF8223ED16200D54DE2 /* MonthsOfYearViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonthsOfYearViewController.m; sourceTree = "<group>"; };
 		B9552FFA223EDD6D00D54DE2 /* DaysOfMonthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DaysOfMonthViewController.h; sourceTree = "<group>"; };
 		B9552FFB223EDD6D00D54DE2 /* DaysOfMonthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DaysOfMonthViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
-		B9644E4F22407E8D00A5A6BE /* DayOrdinalTouchRecognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DayOrdinalTouchRecognizer.h; sourceTree = "<group>"; };
-		B9644E5022407E8D00A5A6BE /* DayOrdinalTouchRecognizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DayOrdinalTouchRecognizer.m; sourceTree = "<group>"; wrapsLines = 0; };
-		B9644E562241264D00A5A6BE /* HoursCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HoursCollectionViewController.h; sourceTree = "<group>"; };
-		B9644E572241264D00A5A6BE /* HoursCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HoursCollectionViewController.m; sourceTree = "<group>"; };
+		B9644E4F22407E8D00A5A6BE /* TouchRecognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchRecognizer.h; sourceTree = "<group>"; wrapsLines = 0; };
+		B9644E5022407E8D00A5A6BE /* TouchRecognizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchRecognizer.m; sourceTree = "<group>"; wrapsLines = 0; };
+		B9F231CF2249FD8E0009142C /* DaysHoursCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DaysHoursCollectionViewController.h; sourceTree = "<group>"; };
+		B9F231D02249FD8E0009142C /* DaysHoursCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DaysHoursCollectionViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
+		B9F231D2224A01190009142C /* DaysHoursCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DaysHoursCollectionViewCell.h; sourceTree = "<group>"; };
+		B9F231D3224A01190009142C /* DaysHoursCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DaysHoursCollectionViewCell.m; sourceTree = "<group>"; };
 		B9FFCBF6223CB4D20035323A /* JABPlanetaryHourFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JABPlanetaryHourFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -182,11 +185,11 @@
 				B913AF22223CAB890018D79C /* RootViewController.h */,
 				B913AF23223CAB890018D79C /* RootViewController.m */,
 				B913AF25223CAB890018D79C /* Main.storyboard */,
+				B913AF2E223CAB8A0018D79C /* main.m */,
 				B9552FF4223ED07300D54DE2 /* Calendar */,
 				B913AF28223CAB8A0018D79C /* Assets.xcassets */,
 				B913AF2A223CAB8A0018D79C /* LaunchScreen.storyboard */,
 				B913AF2D223CAB8A0018D79C /* Info.plist */,
-				B913AF2E223CAB8A0018D79C /* main.m */,
 			);
 			path = JABPlanetaryHour;
 			sourceTree = "<group>";
@@ -210,10 +213,10 @@
 				B913AF4A223CAB8A0018D79C /* ExtensionDelegate.m */,
 				B913AF4C223CAB8A0018D79C /* NotificationController.h */,
 				B913AF4D223CAB8A0018D79C /* NotificationController.m */,
+				B913AF54223CAB8B0018D79C /* Info.plist */,
 				B913AF4F223CAB8A0018D79C /* ComplicationController.h */,
 				B913AF50223CAB8A0018D79C /* ComplicationController.m */,
 				B913AF52223CAB8B0018D79C /* Assets.xcassets */,
-				B913AF54223CAB8B0018D79C /* Info.plist */,
 				B913AF55223CAB8B0018D79C /* PushNotificationPayload.apns */,
 			);
 			path = "JABPlanetaryHour WatchKit Extension";
@@ -230,10 +233,12 @@
 		B9552FF4223ED07300D54DE2 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				B9644E592241265A00A5A6BE /* DaysHours */,
-				B9552FF5223ED09300D54DE2 /* MonthsDays */,
 				B9552FBD223EC81000D54DE2 /* CalendarRootViewController.h */,
 				B9552FBE223EC81000D54DE2 /* CalendarRootViewController.m */,
+				B9644E4F22407E8D00A5A6BE /* TouchRecognizer.h */,
+				B9644E5022407E8D00A5A6BE /* TouchRecognizer.m */,
+				B9644E592241265A00A5A6BE /* DaysHours */,
+				B9552FF5223ED09300D54DE2 /* MonthsDays */,
 				B9552FF6223ED0A600D54DE2 /* YearsMonths */,
 			);
 			path = Calendar;
@@ -261,8 +266,6 @@
 				B9552FC4223EC8A500D54DE2 /* DaysOfMonthPageViewController.m */,
 				B9552FFA223EDD6D00D54DE2 /* DaysOfMonthViewController.h */,
 				B9552FFB223EDD6D00D54DE2 /* DaysOfMonthViewController.m */,
-				B9644E4F22407E8D00A5A6BE /* DayOrdinalTouchRecognizer.h */,
-				B9644E5022407E8D00A5A6BE /* DayOrdinalTouchRecognizer.m */,
 			);
 			path = YearsMonths;
 			sourceTree = "<group>";
@@ -270,8 +273,10 @@
 		B9644E592241265A00A5A6BE /* DaysHours */ = {
 			isa = PBXGroup;
 			children = (
-				B9644E562241264D00A5A6BE /* HoursCollectionViewController.h */,
-				B9644E572241264D00A5A6BE /* HoursCollectionViewController.m */,
+				B9F231CF2249FD8E0009142C /* DaysHoursCollectionViewController.h */,
+				B9F231D02249FD8E0009142C /* DaysHoursCollectionViewController.m */,
+				B9F231D2224A01190009142C /* DaysHoursCollectionViewCell.h */,
+				B9F231D3224A01190009142C /* DaysHoursCollectionViewCell.m */,
 			);
 			path = DaysHours;
 			sourceTree = "<group>";
@@ -408,17 +413,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9644E5122407E8D00A5A6BE /* DayOrdinalTouchRecognizer.m in Sources */,
+				B9644E5122407E8D00A5A6BE /* TouchRecognizer.m in Sources */,
 				B9552FF3223ECE2000D54DE2 /* DaysOfMonthModelController.m in Sources */,
-				B9644E582241264D00A5A6BE /* HoursCollectionViewController.m in Sources */,
 				B9552FF0223ECADC00D54DE2 /* MonthsOfYearModelController.m in Sources */,
 				B9552FC2223EC88500D54DE2 /* MonthsOfYearPageViewController.m in Sources */,
 				B9552FFC223EDD6D00D54DE2 /* DaysOfMonthViewController.m in Sources */,
+				B9F231D4224A01190009142C /* DaysHoursCollectionViewCell.m in Sources */,
 				B9552FBF223EC81000D54DE2 /* CalendarRootViewController.m in Sources */,
 				B913AF24223CAB890018D79C /* RootViewController.m in Sources */,
-				B913AF2F223CAB8A0018D79C /* main.m in Sources */,
+				B9F231D12249FD8E0009142C /* DaysHoursCollectionViewController.m in Sources */,
 				B9552FF9223ED16200D54DE2 /* MonthsOfYearViewController.m in Sources */,
 				B913AF21223CAB890018D79C /* AppDelegate.m in Sources */,
+				B9F231CB22487C8A0009142C /* main.m in Sources */,
 				B9552FC5223EC8A500D54DE2 /* DaysOfMonthPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

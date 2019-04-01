@@ -29,7 +29,7 @@
     self.pageViewController.delegate = self;
 
     MonthsOfYearViewController *startingViewController = [self.modelController viewControllerAtIndex:1 storyboard:self.storyboard];
-    NSLog(@"%@", [startingViewController description]);
+//    NSLog(@"%@", [startingViewController description]);
     NSArray *viewControllers = @[startingViewController];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
 

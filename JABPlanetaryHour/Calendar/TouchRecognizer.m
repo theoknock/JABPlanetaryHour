@@ -6,10 +6,10 @@
 //  Copyright © 2019 The Life of a Demoniac. All rights reserved.
 //
 
-#import "DayOrdinalTouchRecognizer.h"
+#import "TouchRecognizer.h"
 #import <UIKit/UIGestureRecognizerSubclass.h>
 
-@implementation DayOrdinalTouchRecognizer
+@implementation TouchRecognizer
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
