@@ -48,17 +48,23 @@
     typedef void(^MeasureExecutionTime)(ExecutionTimeMeasurement executionTime);
     void(^measureExecutionTime)(CMTime, ExecutionTimeMeasurement) = ^(CMTime startTime, ExecutionTimeMeasurement executionTime)
     {
-//        [Location.locator deviceLocation:^(CLLocation * _Nonnull location) {
-//            NSLog(@"COORDINATE\t%f, %f", location.coordinate.latitude, location.coordinate.longitude);
-//            SolarCycles *solarCycles = [[SolarCycles alloc] initWithLocation:location];
-//            [solarCycles enumerateObjectsUsingBlock:^(NSDictionary<NSNumber *, NSDate *> * _Nonnull solarCycle, NSUInteger idx, BOOL * _Nonnull stop) {
-//                [solarCycle enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, NSDate * _Nonnull obj, BOOL * _Nonnull stop) {
-//                    NSLog(@"%@ : %@", key, obj);
-//                }];
-//                NSLog(@"-----");
+        __block int count = 0;
+        [SolarCycles.data solarCycles:10000 completionBlock:^(NSDictionary<NSNumber *,NSDate *> * _Nonnull solarCycle) {
+            count++;
+            [solarCycle enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, NSDate * _Nonnull obj, BOOL * _Nonnull stop) {
+                NSLog(@"%@ : %@", key, obj);
+            }];
+            NSLog(@"-----");
+            if (count >= 9999) executionTime(CMTimeSubtract(CMClockGetTime(CMClockGetHostTimeClock()), startTime));
+        }];
+//        [SolarCycles.data enumerateObjectsUsingBlock:^(NSDictionary<NSNumber *, NSDate *> * _Nonnull solarCycle, NSUInteger idx, BOOL * _Nonnull stop) {
+//            [solarCycle enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, NSDate * _Nonnull obj, BOOL * _Nonnull stop) {
+//                NSLog(@"%@ : %@", key, obj);
 //            }];
-//            executionTime(CMTimeSubtract(CMClockGetTime(CMClockGetHostTimeClock()), startTime));
+//            NSLog(@"-----\t%lu", idx);
 //        }];
+
+        executionTime(CMTimeSubtract(CMClockGetTime(CMClockGetHostTimeClock()), startTime));
     };
     
     measureExecutionTime(CMClockGetTime(CMClockGetHostTimeClock()), ^(CMTime elapsedTime) {

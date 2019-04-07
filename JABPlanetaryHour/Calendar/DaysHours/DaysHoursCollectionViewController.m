@@ -9,6 +9,7 @@
 #import "DaysHoursCollectionViewController.h"
 #import "DaysHoursCollectionViewCell.h"
 #import <JABPlanetaryHourFramework/JABPlanetaryHourFramework.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface DaysHoursCollectionViewController ()
 

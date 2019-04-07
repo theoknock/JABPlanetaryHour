@@ -21,6 +21,7 @@
 		B913AF4E223CAB8A0018D79C /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B913AF4D223CAB8A0018D79C /* NotificationController.m */; };
 		B913AF51223CAB8A0018D79C /* ComplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B913AF50223CAB8A0018D79C /* ComplicationController.m */; };
 		B913AF53223CAB8B0018D79C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B913AF52223CAB8B0018D79C /* Assets.xcassets */; };
+		B91C8E6E225936140035BFEB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B91C8E6D225936140035BFEB /* CoreLocation.framework */; };
 		B9552FBF223EC81000D54DE2 /* CalendarRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9552FBE223EC81000D54DE2 /* CalendarRootViewController.m */; };
 		B9552FC2223EC88500D54DE2 /* MonthsOfYearPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9552FC1223EC88500D54DE2 /* MonthsOfYearPageViewController.m */; };
 		B9552FC5223EC8A500D54DE2 /* DaysOfMonthPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9552FC4223EC8A500D54DE2 /* DaysOfMonthPageViewController.m */; };
@@ -115,6 +116,7 @@
 		B913AF52223CAB8B0018D79C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B913AF54223CAB8B0018D79C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B913AF55223CAB8B0018D79C /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		B91C8E6D225936140035BFEB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B9552FBD223EC81000D54DE2 /* CalendarRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarRootViewController.h; sourceTree = "<group>"; };
 		B9552FBE223EC81000D54DE2 /* CalendarRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarRootViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		B9552FC0223EC88500D54DE2 /* MonthsOfYearPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonthsOfYearPageViewController.h; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B91C8E6E225936140035BFEB /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +228,7 @@
 		B913AF63223CABB30018D79C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B91C8E6D225936140035BFEB /* CoreLocation.framework */,
 				B9FFCBF6223CB4D20035323A /* JABPlanetaryHourFramework.framework */,
 			);
 			name = Frameworks;
