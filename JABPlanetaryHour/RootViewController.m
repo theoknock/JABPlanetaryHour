@@ -40,29 +40,28 @@
     
     [calendarRootViewController didMoveToParentViewController:self];
     
-    CMTime (^currentTime)(void) = ^(void) {
-        return CMClockGetTime(CMClockGetHostTimeClock());
-    };
+//    CMTime (^currentTime)(void) = ^(void) {
+//        return CMClockGetTime(CMClockGetHostTimeClock());
+//    };
     
     typedef void(^ExecutionTimeMeasurement)(CMTime timeElapsed);
     typedef void(^MeasureExecutionTime)(ExecutionTimeMeasurement executionTime);
     void(^measureExecutionTime)(CMTime, ExecutionTimeMeasurement) = ^(CMTime startTime, ExecutionTimeMeasurement executionTime)
     {
         __block int count = 0;
-        [SolarCycles.data solarCycles:10000 completionBlock:^(NSDictionary<NSNumber *,NSDate *> * _Nonnull solarCycle) {
+        NSIndexSet *days  = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, 10000)];
+        NSIndexSet *data  = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, 8)];
+        NSIndexSet *hours = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, 23)];
+        [SolarCycles.data solarCyclesForDays:days planetaryHourData:data planetaryHours:hours completionBlock:^(NSDictionary<NSNumber *,NSDate *> * _Nonnull) {
             count++;
             [solarCycle enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, NSDate * _Nonnull obj, BOOL * _Nonnull stop) {
                 NSLog(@"%@ : %@", key, obj);
             }];
             NSLog(@"-----");
             if (count >= 9999) executionTime(CMTimeSubtract(CMClockGetTime(CMClockGetHostTimeClock()), startTime));
+        } planetaryHourCompletionBlock:^(NSDictionary<NSNumber *,NSDate *> * _Nonnull) {
+            NSLog(@"Planetary hour data completion block called");
         }];
-//        [SolarCycles.data enumerateObjectsUsingBlock:^(NSDictionary<NSNumber *, NSDate *> * _Nonnull solarCycle, NSUInteger idx, BOOL * _Nonnull stop) {
-//            [solarCycle enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, NSDate * _Nonnull obj, BOOL * _Nonnull stop) {
-//                NSLog(@"%@ : %@", key, obj);
-//            }];
-//            NSLog(@"-----\t%lu", idx);
-//        }];
 
         executionTime(CMTimeSubtract(CMClockGetTime(CMClockGetHostTimeClock()), startTime));
     };
