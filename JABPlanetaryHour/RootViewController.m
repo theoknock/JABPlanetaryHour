@@ -49,17 +49,17 @@
     void(^measureExecutionTime)(CMTime, ExecutionTimeMeasurement) = ^(CMTime startTime, ExecutionTimeMeasurement executionTime)
     {
         __block int count = 0;
-        NSIndexSet *days  = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, 10000)];
+        NSIndexSet *days  = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, 1)];
         NSIndexSet *data  = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, 8)];
-        NSIndexSet *hours = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, 23)];
-        [SolarCycles.data solarCyclesForDays:days planetaryHourData:data planetaryHours:hours completionBlock:^(NSDictionary<NSNumber *,NSDate *> * _Nonnull) {
+        NSIndexSet *hours = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, 24)];
+        [SolarCycles.data solarCyclesForDays:days planetaryHourData:data planetaryHours:hours completionBlock:^(NSDictionary<NSNumber *,NSDate *> * _Nonnull solarCycle) {
             count++;
             [solarCycle enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, NSDate * _Nonnull obj, BOOL * _Nonnull stop) {
                 NSLog(@"%@ : %@", key, obj);
             }];
             NSLog(@"-----");
             if (count >= 9999) executionTime(CMTimeSubtract(CMClockGetTime(CMClockGetHostTimeClock()), startTime));
-        } planetaryHourCompletionBlock:^(NSDictionary<NSNumber *,NSDate *> * _Nonnull) {
+        } planetaryHourCompletionBlock:^(NSDictionary<NSNumber *,NSDate *> * _Nonnull planetaryHourData) {
             NSLog(@"Planetary hour data completion block called");
         }];
 
